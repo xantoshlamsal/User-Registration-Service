@@ -112,7 +112,25 @@ class UserController extends Controller
             'message' => ($delete_flag) ? 'User deleted successfully' : 'Sorry! User not found',
             'success' => $delete_flag
         ]);
+    }
 
+
+    public function edit($id)
+    {
+        $user_object=[];
+        $users=$this->index(true);
+        foreach ($users as $user){
+            if($id==$user['id'])
+                $user_object=$user;
+        }
+        return view('edit')->with(['user'=>$user_object]);
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        $this->destroy($id);
+        return $this->store($request);
     }
 
 }

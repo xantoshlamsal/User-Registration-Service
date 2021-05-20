@@ -796,7 +796,7 @@ input {
     color: white;
     font-weight: bold;
 
-    width: 17ch;
+    width: 19ch;
     animation: typing 2s steps(22), blink .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;

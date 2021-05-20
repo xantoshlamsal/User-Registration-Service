@@ -46,11 +46,16 @@
                                 <td>{{$user['dob']}}</td>
                                 <td>{{$user['preferred_contact']}}</td>
                                 <td>
-                                    <form method="post" action="{{route('users.destroy', [$user['id']])}}">
+                                    <form method="post" action="{{route('users.destroy', $user['id'])}}" style="display: inline">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="btn-sm btn-danger">Delete</button>
+                                        <button type="submit" class="btn-sm btn-danger">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
                                     </form>
+                                    <a class="btn-primary btn-sm" href="{{route('users.edit', $user['id'])}}">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
